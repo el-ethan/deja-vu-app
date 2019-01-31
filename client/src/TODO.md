@@ -1,0 +1,3 @@
+- [ ] Use deja vu functionality through npm not copy paste
+- [ ] Put connection string in environment variable or something (where does react put this stuff?)
+- [ ] When do I close the connection?
