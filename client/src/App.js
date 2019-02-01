@@ -6,6 +6,23 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import Input from '@material-ui/core/Input';
+
+
+class SearchInput extends React.Component {
+
+    handleInput = (event) => {
+        console.log(event.target.value);
+        this.props.filterFunc(event.target.value)
+    }
+
+    render() {
+        return (
+            <Input onChange={this.handleInput} />
+        );
+    }
+
+}
 
 
 function Incident(props) {
@@ -28,8 +45,8 @@ class IncidentList extends React.Component {
     constructor() {
         super();
         this.state = {
-            incidents: [
-            ]
+            incidents: [],
+            incidentFilterQuery: ''
         }
     }
 
@@ -39,25 +56,38 @@ class IncidentList extends React.Component {
 
     loadIncidentsFromServer() {
         fetch('/api/incidents').then((data) => data.json()).then((res) => {
-            if (!res.success) this.setState({ error: res.error });
-            else this.setState({ incidents: res.data });
+            if (!res.success) {
+                this.setState({ error: res.error })
+            } else {
+                this.setState({ incidents: res.data })
+            };
         });
     }
 
+    filterIncidents = (searchQuery) => {
+        if (searchQuery) {
+            this.setState({incidentFilterQuery: searchQuery});
+        }
+    }
+
     onDelete = (incidentId) => {
-        this.setState({
-            incidents: this.state.incidents.filter((incident) => incident._id !== incidentId)
-        });
-        fetch(`/api/incidents/${incidentId}`, {method: 'DELETE'}).then((data) => {
-            console.log('hello');
-        })
+        const incidentsMinusDeleted = this.state.incidents.filter((incident) => incident._id !== incidentId);
+        this.setState({incidents: incidentsMinusDeleted});
+        fetch(`/api/incidents/${incidentId}`, {method: 'DELETE'})
     }
 
     render() {
         return (
             <div>
+                <SearchInput filterFunc={this.filterIncidents} />
                 {
-                    this.state.incidents.map((incident) => (
+                    this.state.incidents.filter((incident) => {
+                        const problem = incident.problem.toLowerCase();
+                        const solution = incident.solution.toLowerCase();
+                        const problemMatches =problem.includes(this.state.incidentFilterQuery.toLowerCase());
+                        const solutionMatches = solution.includes(this.state.incidentFilterQuery.toLowerCase());
+                        return problemMatches || solutionMatches;
+                    }).map((incident) => (
                         <Incident onDelete={this.onDelete} key={incident._id} {...incident} />
                     ))
                 }
