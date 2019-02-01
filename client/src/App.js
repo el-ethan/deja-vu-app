@@ -46,7 +46,7 @@ class IncidentList extends React.Component {
         super();
         this.state = {
             incidents: [],
-            incidentFilterQuery: ''
+            searchQuery: ''
         }
     }
 
@@ -64,9 +64,9 @@ class IncidentList extends React.Component {
         });
     }
 
-    filterIncidents = (searchQuery) => {
+    updateSearchQuery = (searchQuery) => {
         if (searchQuery) {
-            this.setState({incidentFilterQuery: searchQuery});
+            this.setState({searchQuery: searchQuery});
         }
     }
 
@@ -76,18 +76,22 @@ class IncidentList extends React.Component {
         fetch(`/api/incidents/${incidentId}`, {method: 'DELETE'})
     }
 
+    getFilteredIncidents = () => {
+        return this.state.incidents.filter((incident) => {
+            const problem = incident.problem.toLowerCase();
+            const solution = incident.solution.toLowerCase();
+            const problemMatches = problem.includes(this.state.searchQuery.toLowerCase());
+            const solutionMatches = solution.includes(this.state.searchQuery.toLowerCase());
+            return problemMatches || solutionMatches;
+        })
+    }
+
     render() {
         return (
             <div>
-                <SearchInput filterFunc={this.filterIncidents} />
+                <SearchInput filterFunc={this.updateSearchQuery} />
                 {
-                    this.state.incidents.filter((incident) => {
-                        const problem = incident.problem.toLowerCase();
-                        const solution = incident.solution.toLowerCase();
-                        const problemMatches =problem.includes(this.state.incidentFilterQuery.toLowerCase());
-                        const solutionMatches = solution.includes(this.state.incidentFilterQuery.toLowerCase());
-                        return problemMatches || solutionMatches;
-                    }).map((incident) => (
+                    this.getFilteredIncidents().map((incident) => (
                         <Incident onDelete={this.onDelete} key={incident._id} {...incident} />
                     ))
                 }
