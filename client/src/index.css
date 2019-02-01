@@ -1,5 +1,14 @@
 .incident-card {
-    border: 1px solid black;
     margin: 1rem;
     padding: 1rem;
+}
+
+.trash-can {
+    float: right;
+    color: indianred;
+    cursor: pointer;
+}
+
+body {
+    background: khaki;
 }

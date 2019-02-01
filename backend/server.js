@@ -31,6 +31,23 @@ router.get('/incidents', (req, res) => {
     });
 });
 
+router.delete('/incidents/:incidentId', (req, res) => {
+    const { incidentId } = req.params;
+    if (!incidentId) {
+        return res.json({ success: false, error: 'No incident id provided' });
+    }
+
+    Incident.findOneAndDelete({_id: incidentId}, (error, incident) => {
+        console.log(incident);
+        if (error) {
+            console.log('error');
+            return res.json({ success: false, error });
+        }
+        console.log('no error');
+        return res.json({ success: true });
+    });
+});
+
 // Use our router configuration when we call /api
 app.use('/api', router);
 

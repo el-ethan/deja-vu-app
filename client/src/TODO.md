@@ -1,3 +1,4 @@
-- [ ] Use deja vu functionality through npm not copy paste
-- [ ] Put connection string in environment variable or something (where does react put this stuff?)
-- [ ] When do I close the connection?
+- [ ] Add search
+- [ ] add edit
+- [ ] Add "add"
+- [ ] Add confirmation for delete
