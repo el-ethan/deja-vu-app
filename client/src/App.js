@@ -1,10 +1,7 @@
 import React from 'react';
 import './index.css';
 import 'whatwg-fetch';
-
-
 import IncidentList from './IncidentList';
-
 
 
 class App extends React.Component {
@@ -16,6 +13,5 @@ class App extends React.Component {
         );
     }
 }
-
 
 export default App;
