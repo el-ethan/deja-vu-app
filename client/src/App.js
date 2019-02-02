@@ -31,10 +31,16 @@ function Incident(props) {
         <Card className="incident-card">
             <DeleteRoundedIcon className="trash-can" onClick={() => props.onDelete(props._id)}/>
             <CardContent>
-    	        <Typography variant="h5" component="h2">Problem:</Typography>
-                <p>{props.problem}</p>
-                <Typography variant="h5" component="h2">Solution:</Typography>
-                <ReactMarkdown source={props.solution} />
+                <div className="card-section">
+    	            <Typography variant="h5" component="h2">Problem:</Typography>
+                    <div className="stacktrace">
+                        <ReactMarkdown source={`\`\`\`\n${props.problem}\n\`\`\``} />
+                    </div>
+                </div>
+                <div className="card-section">
+                    <Typography variant="h5" component="h2">Solution:</Typography>
+                    <ReactMarkdown source={props.solution} />
+                </div>
             </CardContent>
     	</Card>
     );
@@ -72,6 +78,10 @@ class IncidentList extends React.Component {
     }
 
     onDelete = (incidentId) => {
+        if (!window.confirm('Delete this incident?')) {
+            return
+        }
+
         const incidentsMinusDeleted = this.state.incidents.filter((incident) => incident._id !== incidentId);
         this.setState({incidents: incidentsMinusDeleted});
         fetch(`/api/incidents/${incidentId}`, {method: 'DELETE'})

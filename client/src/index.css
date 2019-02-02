@@ -5,10 +5,21 @@
 
 .trash-can {
     float: right;
-    color: indianred;
+    color: #ab4642;
     cursor: pointer;
 }
 
+.stacktrace {
+    background: #282828;
+    padding: 1rem;
+    color: #f8f8f8;
+    border-radius: .3rem;
+}
+
+.card-section {
+    margin: 1.5rem;
+}
+
 body {
-    background: lightblue;
+    background: #7cafc2;
 }
