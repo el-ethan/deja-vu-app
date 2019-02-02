@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import Input from '@material-ui/core/Input';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 class SearchInput extends React.Component {
@@ -90,6 +91,10 @@ class IncidentList extends React.Component {
         return (
             <div>
                 <SearchInput filterFunc={this.updateSearchQuery} />
+                {
+                    this.state.incidents.length < 1 &&
+                    <CircularProgress />
+                }
                 {
                     this.getFilteredIncidents().map((incident) => (
                         <Incident onDelete={this.onDelete} key={incident._id} {...incident} />

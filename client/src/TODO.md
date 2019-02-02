@@ -1,4 +1,4 @@
-- [ ] Add search
+- [ ] move components into their own files
 - [ ] add edit
 - [ ] Add "add"
 - [ ] Add confirmation for delete
