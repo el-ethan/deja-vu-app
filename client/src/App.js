@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import Input from '@material-ui/core/Input';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 class SearchInput extends React.Component {
@@ -93,7 +93,7 @@ class IncidentList extends React.Component {
                 <SearchInput filterFunc={this.updateSearchQuery} />
                 {
                     this.state.incidents.length < 1 &&
-                    <CircularProgress />
+                    <LinearProgress style={{marginTop: '1rem'}} />
                 }
                 {
                     this.getFilteredIncidents().map((incident) => (
