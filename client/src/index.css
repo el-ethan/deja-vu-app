@@ -9,7 +9,7 @@
     cursor: pointer;
 }
 
-.stacktrace {
+.stacktrace pre {
     background: #282828;
     padding: 1rem;
     color: #f8f8f8;
@@ -17,6 +17,10 @@
 }
 
 .card-section {
+    margin: 1.5rem;
+}
+
+.tools button{
     margin: 1.5rem;
 }
 

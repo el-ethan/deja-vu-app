@@ -11,7 +11,7 @@ class SearchInput extends React.Component {
 
     render() {
         return (
-            <Input onChange={this.handleInput} />
+            <Input placeholder="Search problem or solution" onChange={this.handleInput} />
         );
     }
 
