@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Input from '@material-ui/core/Input';
+import Card from '@material-ui/core/Card';
 
 
 class SearchInput extends React.Component {
@@ -11,7 +12,10 @@ class SearchInput extends React.Component {
 
     render() {
         return (
-            <Input placeholder="Search problem or solution" onChange={this.handleInput} />
+            <Card className="incident-card">
+                <Input className="search-input" placeholder="Search problem or solution" onChange={this.handleInput} />
+            </Card>
+
         );
     }
 

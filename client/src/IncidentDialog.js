@@ -43,7 +43,7 @@ export default class IncidentDialog extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="add-button" title="report incident">
                 <Fab color="primary" onClick={this.handleClickOpen}>
                     <AddIcon />
                 </Fab>
