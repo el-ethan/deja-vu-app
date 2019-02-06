@@ -31,6 +31,22 @@ router.get('/incidents', (req, res) => {
     });
 });
 
+router.post('/incidents', (req, res) => {
+    const incident = new Incident();
+    // body parser lets us use the req.body
+    const { problem, solution } = req.body;
+    incident.problem = problem;
+    incident.solution = solution;
+    incident.save(err => {
+        if (err) {
+            return res.json({ success: false, error: err });
+        };
+        return res.json({ success: true });
+    });
+    return incident;
+});
+
+
 router.delete('/incidents/:incidentId', (req, res) => {
     const { incidentId } = req.params;
     if (!incidentId) {

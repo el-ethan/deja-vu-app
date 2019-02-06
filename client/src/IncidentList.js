@@ -2,8 +2,10 @@ import React from 'react';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+
 import Incident from './Incident';
 import SearchInput from './SearchInput';
+import IncidentDialog from './IncidentDialog';
 
 
 class IncidentList extends React.Component {
@@ -20,7 +22,13 @@ class IncidentList extends React.Component {
         this.loadIncidentsFromServer();
     }
 
-    loadIncidentsFromServer() {
+    addNewIncidentToList = (newIncident) => {
+        const incidents = this.state.incidents;
+        incidents.push(newIncident);
+        this.setState({incidents: incidents});
+    }
+
+    loadIncidentsFromServer = () => {
         fetch('/api/incidents').then((data) => data.json()).then((res) => {
             if (!res.success) {
                 this.setState({ error: res.error });
@@ -59,16 +67,19 @@ class IncidentList extends React.Component {
     render() {
         return (
             <div>
-                <SearchInput filterFunc={this.updateSearchQuery} />
-                {
-                    this.state.incidents.length < 1 &&
-                        <LinearProgress style={{marginTop: '1rem'}} />
-                }
-                {
-                    this.getFilteredIncidents().map((incident) => (
-                        <Incident onDelete={this.onDelete} key={incident._id} {...incident} />
-                    ))
-                }
+                <SearchInput filterFunc={this.updateSearchQuery} style={{display: 'inline'}}/>
+                <IncidentDialog onAddFunc={this.addNewIncidentToList} />
+                <div>
+                    {
+                        this.state.incidents.length < 1 &&
+                            <LinearProgress style={{marginTop: '1rem'}} />
+                    }
+                    {
+                        this.getFilteredIncidents().map((incident) => (
+                            <Incident onDelete={this.onDelete} key={incident._id} {...incident} />
+                        ))
+                    }
+                </div>
             </div>
         );
     }
