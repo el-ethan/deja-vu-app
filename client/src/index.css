@@ -28,16 +28,9 @@
 
 body {
     background: #7cafc2;
-    padding: 6.2rem 0 0 0;
+    padding-top: 6.2rem;
 }
 
 .search-input {
     margin: 1.5rem;
-}
-
-#spacer {
-    background: #7cafc2;
-    max-height: 1rem;
-    margin: 1.5rem;
-    position: fixed;
 }

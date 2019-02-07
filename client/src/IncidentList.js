@@ -4,7 +4,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 import Incident from './Incident';
-import SearchInput from './SearchInput';
+import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
 
 
@@ -65,7 +65,7 @@ class IncidentList extends React.Component {
     render() {
         return (
             <div>
-                <SearchInput filterFunc={this.updateSearchQuery} />
+                <SearchBar filterFunc={this.updateSearchQuery} />
                 <div>
                     <div>
                         {
@@ -78,7 +78,7 @@ class IncidentList extends React.Component {
                             )).reverse()
                         }
                     </div>
-                    <IncidentDialog onAddFunc={this.addNewIncidentToList} />
+                    <IncidentDialog onBugReportFunc={this.addNewIncidentToList} />
                 </div>
             </div>
         );
