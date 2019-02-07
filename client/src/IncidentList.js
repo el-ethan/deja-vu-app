@@ -39,9 +39,7 @@ class IncidentList extends React.Component {
     }
 
     updateSearchQuery = (searchQuery) => {
-        if (searchQuery) {
-            this.setState({searchQuery: searchQuery});
-        }
+        this.setState({searchQuery: searchQuery});
     }
 
     onDelete = (incidentId) => {
