@@ -26,6 +26,10 @@
     bottom: 60px;
 }
 
+.add-button button {
+    background-color: #7cafc2;
+}
+
 body {
     background: #7cafc2;
     padding-top: 6.2rem;
