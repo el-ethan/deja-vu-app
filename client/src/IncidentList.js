@@ -78,7 +78,7 @@ class IncidentList extends React.Component {
                             )).reverse()
                         }
                     </div>
-                    <IncidentDialog onBugReportFunc={this.addNewIncidentToList} />
+                    <IncidentDialog onAddFunc={this.addNewIncidentToList} />
                 </div>
             </div>
         );

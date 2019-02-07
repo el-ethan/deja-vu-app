@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
                     <Input className="search-input" placeholder="Search problem or solution"
                            onChange={this.handleInput} />
                     {someBase16Colors.map(color => (
-                        <BugReportIcon style={{color: color}} />
+                        <BugReportIcon key={color} style={{color: color}} />
                     ))}
                 </nav>
                 <div id="spacer">

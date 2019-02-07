@@ -26,7 +26,7 @@
     bottom: 60px;
 }
 
-.add-button button {
+.add-button button, button.MuiFab-primary-60:hover {
     background-color: #7cafc2;
 }
 
