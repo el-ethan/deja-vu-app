@@ -53,8 +53,7 @@ router.delete('/incidents/:incidentId', (req, res) => {
         return res.json({ success: false, error: 'No incident id provided' });
     }
 
-    Incident.findOneAndDelete({_id: incidentId}, (error, incident) => {
-        console.log(incident);
+    Incident.findOneAndDelete({_id: incidentId}, (error) => {
         if (error) {
             console.log('error');
             return res.json({ success: false, error });

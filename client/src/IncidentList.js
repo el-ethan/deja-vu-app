@@ -65,19 +65,21 @@ class IncidentList extends React.Component {
     render() {
         return (
             <div>
-                <SearchInput filterFunc={this.updateSearchQuery} className="col-sm" />
+                <SearchInput filterFunc={this.updateSearchQuery} />
                 <div>
-                    {
-                        this.state.incidents.length < 1 &&
-                        <LinearProgress style={{marginTop: '1rem'}} />
-                    }
-                    {
-                        this.getFilteredIncidents().map((incident, i) => (
-                            <Incident onDelete={this.onDelete} key={incident._id || i} {...incident} />
-                        )).reverse()
-                    }
+                    <div>
+                        {
+                            this.state.incidents.length < 1 &&
+                            <LinearProgress style={{marginTop: '1rem'}} />
+                        }
+                        {
+                            this.getFilteredIncidents().map((incident, i) => (
+                                <Incident onDelete={this.onDelete} key={incident._id || i} {...incident} />
+                            )).reverse()
+                        }
+                    </div>
+                    <IncidentDialog onAddFunc={this.addNewIncidentToList} />
                 </div>
-                <IncidentDialog onAddFunc={this.addNewIncidentToList} />
             </div>
         );
     }

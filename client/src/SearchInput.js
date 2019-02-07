@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Input from '@material-ui/core/Input';
-import Card from '@material-ui/core/Card';
 
 
 class SearchInput extends React.Component {
@@ -12,10 +11,13 @@ class SearchInput extends React.Component {
 
     render() {
         return (
-            <Card className="incident-card">
-                <Input className="search-input" placeholder="Search problem or solution" onChange={this.handleInput} />
-            </Card>
-
+            <div>
+                <nav className="fixed-top navbar navbar-light bg-light">
+                    <Input className="search-input" placeholder="Search problem or solution" onChange={this.handleInput} />
+                </nav>
+                <div id="spacer">
+                </div>
+            </div>
         );
     }
 
