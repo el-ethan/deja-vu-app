@@ -1,0 +1,11 @@
+version: '3'
+services:
+    deja-vu-frontend:
+        image: "deja-vu-frontend"
+        build: "./client"
+        ports:
+            - 3000:3000
+
+    deja-vu-backend:
+        build: "./backend"
+        image: "deja-vu-backend"

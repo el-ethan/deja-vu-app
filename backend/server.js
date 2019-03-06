@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import { getSecret } from './secrets';
-import Incident from './models';
+import { Incident, Context } from './models';
 
 // and create our instances
 const app = express();
@@ -28,6 +28,13 @@ router.get('/incidents', (req, res) => {
     Incident.find((err, incidents) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true, data: incidents });
+    });
+});
+
+router.get('/contexts', (req, res) => {
+    Context.find((err, contexts) => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true, data: contexts });
     });
 });
 

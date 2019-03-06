@@ -6,6 +6,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Incident from './Incident';
 import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
+import ContextSelector from './ConextSelector';
 
 
 class IncidentList extends React.Component {
@@ -13,12 +14,15 @@ class IncidentList extends React.Component {
     constructor() {
         super();
         this.state = {
+            currentContext: null,
             incidents: [],
+            contexts: [],
             searchQuery: ''
         };
     }
 
     componentDidMount() {
+        this.loadContextsFromServer();
         this.loadIncidentsFromServer();
     }
 
@@ -28,12 +32,26 @@ class IncidentList extends React.Component {
         this.setState({incidents: incidents});
     }
 
+    setContext = (context) => {
+        this.setState({currentContext: context});
+    }
+
     loadIncidentsFromServer = () => {
         fetch('/api/incidents').then((data) => data.json()).then((res) => {
             if (!res.success) {
                 this.setState({ error: res.error });
             } else {
                 this.setState({ incidents: res.data });
+            }
+        });
+    }
+
+    loadContextsFromServer = () => {
+        fetch('/api/contexts').then((data) => data.json()).then((res) => {
+            if (!res.success) {
+                this.setState({ error: res.error });
+            } else {
+                this.setState({ contexts: res.data });
             }
         });
     }
@@ -65,7 +83,9 @@ class IncidentList extends React.Component {
     render() {
         return (
             <div>
-                <SearchBar filterFunc={this.updateSearchQuery} />
+                <SearchBar filterFunc={this.updateSearchQuery}>
+                    <ContextSelector setAppContext={this.setContext} contexts={this.state.contexts}/>
+                </SearchBar>
                 <div>
                     <div>
                         {

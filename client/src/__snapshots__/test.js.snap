@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inicdent should render correctly 1`] = `
+<WithStyles(Card)
+  className="incident-card"
+>
+  <pure(DeleteRoundedIcon)
+    className="trash-can"
+    onClick={[Function]}
+  />
+  <WithStyles(CardContent)>
+    <div
+      className="card-section"
+    >
+      <WithStyles(Typography)
+        component="h2"
+        variant="h5"
+      >
+        Problem:
+      </WithStyles(Typography)>
+      <div
+        className="stacktrace"
+      >
+        <ReactMarkdown
+          astPlugins={Array []}
+          escapeHtml={true}
+          plugins={Array []}
+          rawSourcePos={false}
+          renderers={Object {}}
+          skipHtml={false}
+          source="\`\`\`
+gremlins
+\`\`\`"
+          sourcePos={false}
+          transformLinkUri={[Function]}
+        />
+      </div>
+    </div>
+    <div
+      className="card-section"
+    >
+      <WithStyles(Typography)
+        component="h2"
+        variant="h5"
+      >
+        Solution:
+      </WithStyles(Typography)>
+      <ReactMarkdown
+        astPlugins={Array []}
+        escapeHtml={true}
+        plugins={Array []}
+        rawSourcePos={false}
+        renderers={Object {}}
+        skipHtml={false}
+        source="don't feed after midnight"
+        sourcePos={false}
+        transformLinkUri={[Function]}
+      />
+    </div>
+  </WithStyles(CardContent)>
+</WithStyles(Card)>
+`;

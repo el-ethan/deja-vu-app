@@ -3,7 +3,9 @@ import React from 'react';
 import Input from '@material-ui/core/Input';
 import BugReportIcon from '@material-ui/icons/BugReport';
 
+
 const someBase16Colors = ['#ab4642', '#dc9656', '#f7ca88', '#a1b56c', '#86c1b9', '#7cafc2', '#ba8baf'];
+
 
 class SearchBar extends React.Component {
 
@@ -20,6 +22,7 @@ class SearchBar extends React.Component {
                     {someBase16Colors.map(color => (
                         <BugReportIcon key={color} style={{color: color}} />
                     ))}
+                    <div>{this.props.children}</div>
                 </nav>
                 <div id="spacer">
                 </div>
