@@ -1,3 +1,5 @@
+$dejavu-primary: #7cafc2;
+
 .incident-card {
     margin: 1rem;
     padding: 1rem;
@@ -27,11 +29,11 @@
 }
 
 .add-button button, button.MuiFab-primary-60:hover {
-    background-color: #7cafc2;
+    background-color: $dejavu-primary;
 }
 
 body {
-    background: #7cafc2;
+    background: $dejavu-primary;
     padding-top: 6.2rem;
 }
 
@@ -43,22 +45,12 @@ body {
     min-width: 10rem;
 }
 
-.btn-primary {
-    background-color: #7cafc2;
-    border-color: #7cafc2;
-}
-
-.show>.btn-primary.dropdown-toggle {
-    background-color: #7cafc2;
-    border-color: #7cafc2;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #7cafc2;
-    border-color: #7cafc2;
+.btn-primary, .show>.btn-primary.dropdown-toggle, .btn-primary:not(:disabled):not(.disabled):active  {
+    background-color: $dejavu-primary;
+    border-color: $dejavu-primary;
 }
 
 .btn-primary:hover {
-    background-color: darken(#7cafc2, 10%);
-    border-color: darken(#7cafc2, 10%);
+    background-color: darken($dejavu-primary, 10%);
+    border-color: darken($dejavu-primary, 10%);
 }
