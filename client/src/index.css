@@ -1,44 +1,66 @@
 .incident-card {
-    margin: 1rem;
-    padding: 1rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .trash-can {
-    float: right;
-    color: #ab4642;
-    cursor: pointer;
+  float: right;
+  color: #ab4642;
+  cursor: pointer;
 }
 
 .stacktrace pre {
-    background: #282828;
-    padding: 1rem;
-    color: #f8f8f8;
-    border-radius: .3rem;
+  background: #282828;
+  padding: 1rem;
+  color: #f8f8f8;
+  border-radius: 0.3rem;
 }
 
 .card-section {
-    margin: 1.5rem;
+  margin: 1.5rem;
 }
 
 .add-button {
-    position: fixed !important;
-    right: 60px !important;
-    bottom: 60px;
+  position: fixed !important;
+  right: 60px !important;
+  bottom: 60px;
 }
 
 .add-button button, button.MuiFab-primary-60:hover {
-    background-color: #7cafc2;
+  background-color: #7cafc2;
 }
 
 body {
-    background: #7cafc2;
-    padding-top: 6.2rem;
+  background: #7cafc2;
+  padding-top: 6.2rem;
 }
 
 .search-input {
-    margin: 1.5rem;
+  margin: 1.5rem;
 }
 
 #context-selector {
-    min-width: 10rem;
+  min-width: 10rem;
 }
+
+.btn-primary {
+  background-color: #7cafc2;
+  border-color: #7cafc2;
+}
+
+.show > .btn-primary.dropdown-toggle {
+  background-color: #7cafc2;
+  border-color: #7cafc2;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #7cafc2;
+  border-color: #7cafc2;
+}
+
+.btn-primary:hover {
+  background-color: #599ab2;
+  border-color: #599ab2;
+}
+
+/*# sourceMappingURL=index.css.map */

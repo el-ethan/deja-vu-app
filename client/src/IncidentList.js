@@ -6,7 +6,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Incident from './Incident';
 import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
-import {ContextSelector, ALL_CONTEXTS} from './ConextSelector';
+import {ContextSelector, ALL_CONTEXTS, CONTEXTS} from './ConextSelector';
 
 
 class IncidentList extends React.Component {
@@ -16,13 +16,13 @@ class IncidentList extends React.Component {
         this.state = {
             currentContext: ALL_CONTEXTS,
             incidents: [],
-            contexts: [],
+            contexts: CONTEXTS,
             searchQuery: ''
         };
     }
 
     componentDidMount() {
-        this.loadContextsFromServer();
+        // this.loadContextsFromServer();
         this.loadIncidentsFromServer();
     }
 
@@ -85,7 +85,7 @@ class IncidentList extends React.Component {
         return (
             <div>
                 <SearchBar filterFunc={this.updateSearchQuery}>
-                    <ContextSelector setAppContext={this.setContext} contexts={this.state.contexts}/>
+                    <ContextSelector setContext={this.setContext} contexts={this.state.contexts}/>
                 </SearchBar>
                 <div>
                     <div>
@@ -99,7 +99,9 @@ class IncidentList extends React.Component {
                             )).reverse()
                         }
                     </div>
-                    <IncidentDialog onAddFunc={this.addNewIncidentToList} />
+                    <IncidentDialog contexts={this.state.contexts}
+                                    appContext={this.state.currentContext}
+                                    onAddFunc={this.addNewIncidentToList} />
                 </div>
             </div>
         );

@@ -8,14 +8,24 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
+import {ContextSelector} from './ConextSelector';
 
 
 export default class IncidentDialog extends React.Component {
-    state = {
-        open: false,
-        problem: '',
-        solution: ''
-    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+            problem: '',
+            solution: '',
+            selectedContext: props.appContext
+        };
+    }
+
+    handleContextSelection = (contextSelection) => {
+        this.setState({selectedContext: contextSelection});
+    }
 
     handleClickOpen = () => {
         this.setState({ open: true });
@@ -26,7 +36,12 @@ export default class IncidentDialog extends React.Component {
     };
 
     postIncidentToDatabase = () => {
-        const incidentObj = { problem: this.state.problem, solution: this.state.solution };
+        const incidentObj = {
+            problem: this.state.problem,
+            solution: this.state.solution,
+            context: this.state.selectedContext
+        };
+
         fetch('/api/incidents', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -66,7 +81,7 @@ export default class IncidentDialog extends React.Component {
                             multiline
                             rowsMax="4"
                             onChange={
-                                (event) => this.setState({problem: event.target.value})
+                            (event) => this.setState({problem: event.target.value})
                             }
                         />
                         <TextField
@@ -75,9 +90,13 @@ export default class IncidentDialog extends React.Component {
                             label="Solution"
                             fullWidth
                             onChange={
-                                (event) => this.setState({solution: event.target.value})
+                            (event) => this.setState({solution: event.target.value})
                             }
                         />
+                        <ContextSelector
+                            setContext={this.handleContextSelection}
+                            selectedContext={this.props.appContext}
+                            contexts={this.props.contexts} />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">

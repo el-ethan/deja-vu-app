@@ -4,19 +4,24 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 const ALL_CONTEXTS = 'All contexts';
+const CONTEXTS = [
+    'work',
+    'personal',
+    'pagerduty'
+];
 
 
 class ContextSelector extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            selectedContext: ALL_CONTEXTS
+            selectedContext: props.selectedContext || ALL_CONTEXTS
         };
     }
 
     handleSelect = (selectedContext) => {
-        this.props.setAppContext(selectedContext);
+        this.props.setContext(selectedContext);
         this.setState({selectedContext: selectedContext});
     }
 
@@ -30,11 +35,12 @@ class ContextSelector extends React.Component {
                 </Dropdown.Item>
                 {
                     this.props.contexts.map((context) => {
+                        console.log(context)
                         return (
-                            <Dropdown.Item eventKey={context.context}
+                            <Dropdown.Item eventKey={context}
                                            onSelect={this.handleSelect}
-                                           key={context._id}>
-                                {context.context}
+                                           key={context}>
+                                {context}
                             </Dropdown.Item>
                         );
 
@@ -46,4 +52,4 @@ class ContextSelector extends React.Component {
 
 }
 
-export {ContextSelector, ALL_CONTEXTS};
+export {ContextSelector, ALL_CONTEXTS, CONTEXTS};
