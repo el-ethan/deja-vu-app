@@ -4,7 +4,7 @@ const IncidentSchema = new Schema(
     {
         solution: String,
         problem: String,
-        context: {type: Schema.Types.ObjectId, ref: 'Context'}
+        context: String
     }
 );
 
@@ -15,7 +15,7 @@ const ContextSchema = new Schema(
 );
 
 const Incident = model('Incident', IncidentSchema);
-const Context =model('Context', ContextSchema);
+const Context = model('Context', ContextSchema);
 
 export {
     Incident,

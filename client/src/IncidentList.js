@@ -6,7 +6,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Incident from './Incident';
 import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
-import ContextSelector from './ConextSelector';
+import {ContextSelector, ALL_CONTEXTS} from './ConextSelector';
 
 
 class IncidentList extends React.Component {
@@ -14,7 +14,7 @@ class IncidentList extends React.Component {
     constructor() {
         super();
         this.state = {
-            currentContext: null,
+            currentContext: ALL_CONTEXTS,
             incidents: [],
             contexts: [],
             searchQuery: ''
@@ -76,7 +76,8 @@ class IncidentList extends React.Component {
             const solution = incident.solution.toLowerCase();
             const problemMatches = problem.includes(this.state.searchQuery.toLowerCase());
             const solutionMatches = solution.includes(this.state.searchQuery.toLowerCase());
-            return problemMatches || solutionMatches;
+            const contextMatches = this.state.currentContext === ALL_CONTEXTS || incident.context.includes(this.state.currentContext);
+            return contextMatches && (problemMatches || solutionMatches);
         });
     }
 

@@ -2,12 +2,16 @@ import React from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+
+const ALL_CONTEXTS = 'All contexts';
+
+
 class ContextSelector extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            selectedContext: 'All contexts'
+            selectedContext: ALL_CONTEXTS
         };
     }
 
@@ -19,7 +23,7 @@ class ContextSelector extends React.Component {
     render () {
         return (
             <DropdownButton id="context-selector" title={this.state.selectedContext}>
-                <Dropdown.Item eventKey={'All contexts'}
+                <Dropdown.Item eventKey={ALL_CONTEXTS}
                                onSelect={this.handleSelect}
                                key={'all-contexts'}>
                     All contexts
@@ -42,4 +46,4 @@ class ContextSelector extends React.Component {
 
 }
 
-export default ContextSelector;
+export {ContextSelector, ALL_CONTEXTS};
