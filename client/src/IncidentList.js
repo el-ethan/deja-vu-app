@@ -14,7 +14,7 @@ class IncidentList extends React.Component {
     constructor() {
         super();
         this.state = {
-            currentContext: ALL_CONTEXTS,
+            currentContext: localStorage.getItem('dejavu-context') || ALL_CONTEXTS,
             incidents: [],
             contexts: CONTEXTS,
             searchQuery: ''
@@ -33,6 +33,7 @@ class IncidentList extends React.Component {
     }
 
     setContext = (context) => {
+        localStorage.setItem('dejavu-context', context);
         this.setState({currentContext: context});
     }
 
@@ -85,7 +86,9 @@ class IncidentList extends React.Component {
         return (
             <div>
                 <SearchBar filterFunc={this.updateSearchQuery}>
-                    <ContextSelector setContext={this.setContext} contexts={this.state.contexts}/>
+                    <ContextSelector selectedContext={this.state.currentContext}
+                                     setContext={this.setContext}
+                                     contexts={this.state.contexts}/>
                 </SearchBar>
                 <div>
                     <div>
