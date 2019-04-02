@@ -11,6 +11,11 @@ $dejavu-primary: #7cafc2;
     cursor: pointer;
 }
 
+.pencil {
+    float: right;
+    margin-right: 1rem;
+    cursor: pointer;
+}
 .stacktrace pre {
     background: #282828;
     padding: 1rem;
