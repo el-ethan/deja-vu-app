@@ -41,9 +41,10 @@ router.get('/contexts', (req, res) => {
 router.post('/incidents', (req, res) => {
     const incident = new Incident();
     // body parser lets us use the req.body
-    const { problem, solution } = req.body;
+    const { problem, solution, context } = req.body;
     incident.problem = problem;
     incident.solution = solution;
+    incident.context = context;
     incident.save(err => {
         if (err) {
             return res.json({ success: false, error: err });
@@ -65,7 +66,6 @@ router.delete('/incidents/:incidentId', (req, res) => {
             console.log('error');
             return res.json({ success: false, error });
         }
-        console.log('no error');
         return res.json({ success: true });
     });
 });

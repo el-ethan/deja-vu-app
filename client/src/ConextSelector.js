@@ -35,7 +35,6 @@ class ContextSelector extends React.Component {
                 </Dropdown.Item>
                 {
                     this.props.contexts.map((context) => {
-                        console.log(context)
                         return (
                             <Dropdown.Item eventKey={context}
                                            onSelect={this.handleSelect}
