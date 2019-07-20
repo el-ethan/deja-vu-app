@@ -2,42 +2,11 @@
     "name": "deja-vu-frontend",
     "version": "0.1.0",
     "private": true,
-    "dependencies": {
-        "@material-ui/core": "^3.9.2",
-        "@material-ui/icons": "^3.0.2",
-        "bootstrap": "^4.3.1",
-        "mongoose": "^5.4.9",
-        "node-sass": "^4.11.0",
-        "react": "^16.7.0",
-        "react-bootstrap": "^1.0.0-beta.5",
-        "react-dom": "^16.7.0",
-        "react-markdown": "^4.0.6",
-        "react-scripts": "^2.1.5"
-    },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    "eslintConfig": {
-        "extends": "/home/ethan/.eslintrc"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ],
-    "proxy": "http://localhost:3001",
-    "jest": {
-        "snapshotSerializers": [
-            "enzyme-to-json/serializer"
-        ]
-    },
-    "devDependencies": {
-        "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.9.1",
-        "enzyme-to-json": "^3.3.5"
-    }
+    "proxy": "http://localhost:3001"
 }
