@@ -56,7 +56,7 @@ ShallowWrapper {
         ],
       ],
       "id": "context-selector",
-      "title": "home",
+      "title": "All contexts",
     },
     "ref": null,
     "rendered": Array [
@@ -183,7 +183,7 @@ ShallowWrapper {
           ],
         ],
         "id": "context-selector",
-        "title": "home",
+        "title": "All contexts",
       },
       "ref": null,
       "rendered": Array [
@@ -302,6 +302,5 @@ ShallowWrapper {
     Symbol(enzyme.__providerValues__): undefined,
   },
   Symbol(enzyme.__providerValues__): Map {},
-  Symbol(enzyme.__childContext__): null,
 }
 `;

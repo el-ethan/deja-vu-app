@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -11,44 +11,35 @@ const CONTEXTS = [
 ];
 
 
-class ContextSelector extends React.Component {
+function ContextSelector({contexts, setContext, previousSelectedContext}) {
+    const [selectedContext, setSelectedContext] = useState(previousSelectedContext || ALL_CONTEXTS);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedContext: props.selectedContext || ALL_CONTEXTS
-        };
-    }
+    const handleSelect = (selectedContext) => {
+        setContext(selectedContext);
+        setSelectedContext(selectedContext);
+    };
 
-    handleSelect = (selectedContext) => {
-        this.props.setContext(selectedContext);
-        this.setState({selectedContext: selectedContext});
-    }
+    return (
+        <DropdownButton id="context-selector" title={selectedContext}>
+            <Dropdown.Item eventKey={ALL_CONTEXTS}
+                           onSelect={handleSelect}
+                           key={'all-contexts'}>
+                All contexts
+            </Dropdown.Item>
+            {
+                contexts.map((context) => {
+                    return (
+                        <Dropdown.Item eventKey={context}
+                                       onSelect={handleSelect}
+                                       key={context}>
+                            {context}
+                        </Dropdown.Item>
+                    );
 
-    render () {
-        return (
-            <DropdownButton id="context-selector" title={this.state.selectedContext}>
-                <Dropdown.Item eventKey={ALL_CONTEXTS}
-                               onSelect={this.handleSelect}
-                               key={'all-contexts'}>
-                    All contexts
-                </Dropdown.Item>
-                {
-                    this.props.contexts.map((context) => {
-                        return (
-                            <Dropdown.Item eventKey={context}
-                                           onSelect={this.handleSelect}
-                                           key={context}>
-                                {context}
-                            </Dropdown.Item>
-                        );
-
-                    })
-                }
-            </DropdownButton>
-        );
-    }
-
+                })
+            }
+        </DropdownButton>
+    );
 }
 
 export {ContextSelector, ALL_CONTEXTS, CONTEXTS};
