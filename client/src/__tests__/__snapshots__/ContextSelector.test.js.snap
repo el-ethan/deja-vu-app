@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContextSelector should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ContextSelector
+    contexts={
+      Array [
+        "home",
+        "work",
+      ]
+    }
+    selectedContext="home"
+    setContext={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ForwardRef
+          as={[Function]}
+          disabled={false}
+          eventKey="All contexts"
+          onSelect={[Function]}
+        >
+          All contexts
+        </ForwardRef>,
+        Array [
+          <ForwardRef
+            as={[Function]}
+            disabled={false}
+            eventKey="home"
+            onSelect={[Function]}
+          >
+            home
+          </ForwardRef>,
+          <ForwardRef
+            as={[Function]}
+            disabled={false}
+            eventKey="work"
+            onSelect={[Function]}
+          >
+            work
+          </ForwardRef>,
+        ],
+      ],
+      "id": "context-selector",
+      "title": "home",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "all-contexts",
+        "nodeType": "function",
+        "props": Object {
+          "as": [Function],
+          "children": "All contexts",
+          "disabled": false,
+          "eventKey": "All contexts",
+          "onSelect": [Function],
+        },
+        "ref": null,
+        "rendered": "All contexts",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "defaultProps": Object {
+            "as": [Function],
+            "disabled": false,
+          },
+          "displayName": "DropdownItem",
+          "render": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": "home",
+        "nodeType": "function",
+        "props": Object {
+          "as": [Function],
+          "children": "home",
+          "disabled": false,
+          "eventKey": "home",
+          "onSelect": [Function],
+        },
+        "ref": null,
+        "rendered": "home",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "defaultProps": Object {
+            "as": [Function],
+            "disabled": false,
+          },
+          "displayName": "DropdownItem",
+          "render": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": "work",
+        "nodeType": "function",
+        "props": Object {
+          "as": [Function],
+          "children": "work",
+          "disabled": false,
+          "eventKey": "work",
+          "onSelect": [Function],
+        },
+        "ref": null,
+        "rendered": "work",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "defaultProps": Object {
+            "as": [Function],
+            "disabled": false,
+          },
+          "displayName": "DropdownItem",
+          "render": [Function],
+        },
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "DropdownButton",
+      "propTypes": Object {
+        "bsPrefix": [Function],
+        "disabled": [Function],
+        "href": [Function],
+        "id": [Function],
+        "menuRole": [Function],
+        "onClick": [Function],
+        "rootCloseEvent": [Function],
+        "size": [Function],
+        "title": [Function],
+        "variant": [Function],
+      },
+      "render": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ForwardRef
+            as={[Function]}
+            disabled={false}
+            eventKey="All contexts"
+            onSelect={[Function]}
+          >
+            All contexts
+          </ForwardRef>,
+          Array [
+            <ForwardRef
+              as={[Function]}
+              disabled={false}
+              eventKey="home"
+              onSelect={[Function]}
+            >
+              home
+            </ForwardRef>,
+            <ForwardRef
+              as={[Function]}
+              disabled={false}
+              eventKey="work"
+              onSelect={[Function]}
+            >
+              work
+            </ForwardRef>,
+          ],
+        ],
+        "id": "context-selector",
+        "title": "home",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "all-contexts",
+          "nodeType": "function",
+          "props": Object {
+            "as": [Function],
+            "children": "All contexts",
+            "disabled": false,
+            "eventKey": "All contexts",
+            "onSelect": [Function],
+          },
+          "ref": null,
+          "rendered": "All contexts",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "defaultProps": Object {
+              "as": [Function],
+              "disabled": false,
+            },
+            "displayName": "DropdownItem",
+            "render": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": "home",
+          "nodeType": "function",
+          "props": Object {
+            "as": [Function],
+            "children": "home",
+            "disabled": false,
+            "eventKey": "home",
+            "onSelect": [Function],
+          },
+          "ref": null,
+          "rendered": "home",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "defaultProps": Object {
+              "as": [Function],
+              "disabled": false,
+            },
+            "displayName": "DropdownItem",
+            "render": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": "work",
+          "nodeType": "function",
+          "props": Object {
+            "as": [Function],
+            "children": "work",
+            "disabled": false,
+            "eventKey": "work",
+            "onSelect": [Function],
+          },
+          "ref": null,
+          "rendered": "work",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "defaultProps": Object {
+              "as": [Function],
+              "disabled": false,
+            },
+            "displayName": "DropdownItem",
+            "render": [Function],
+          },
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "DropdownButton",
+        "propTypes": Object {
+          "bsPrefix": [Function],
+          "disabled": [Function],
+          "href": [Function],
+          "id": [Function],
+          "menuRole": [Function],
+          "onClick": [Function],
+          "rootCloseEvent": [Function],
+          "size": [Function],
+          "title": [Function],
+          "variant": [Function],
+        },
+        "render": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    Symbol(enzyme.__providerValues__): undefined,
+  },
+  Symbol(enzyme.__providerValues__): Map {},
+  Symbol(enzyme.__childContext__): null,
+}
+`;

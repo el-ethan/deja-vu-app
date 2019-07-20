@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
-import {ContextSelector} from './ConextSelector';
+import {ContextSelector} from './ContextSelector';
 
 
 export default class IncidentDialog extends React.Component {

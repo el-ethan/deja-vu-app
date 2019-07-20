@@ -6,7 +6,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Incident from './Incident';
 import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
-import {ContextSelector, ALL_CONTEXTS, CONTEXTS} from './ConextSelector';
+import {ContextSelector, ALL_CONTEXTS, CONTEXTS} from './ContextSelector';
 
 
 class IncidentList extends React.Component {
