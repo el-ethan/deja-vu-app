@@ -10,21 +10,21 @@ import CreateIcon from '@material-ui/icons/Create';
 
 
 
-function Incident(props) {
+function Incident({problem, solution, onDelete, _id}) {
     return (
         <Card className="incident-card">
-            <DeleteRoundedIcon className="trash-can" onClick={() => props.onDelete(props._id)}/>
+            <DeleteRoundedIcon className="trash-can" onClick={() => onDelete(_id)}/>
             <CreateIcon className="pencil" />
             <CardContent>
                 <div className="card-section">
     	            <Typography variant="h5" component="h2">Problem:</Typography>
                     <div className="stacktrace">
-                        <ReactMarkdown source={`\`\`\`\n${props.problem}\n\`\`\``} />
+                        <ReactMarkdown id="problem-markdown" source={`\`\`\`\n${problem}\n\`\`\``} />
                     </div>
                 </div>
                 <div className="card-section">
                     <Typography variant="h5" component="h2">Solution:</Typography>
-                    <ReactMarkdown source={props.solution} />
+                    <ReactMarkdown id="solution-markdown" source={solution} />
                 </div>
             </CardContent>
     	</Card>

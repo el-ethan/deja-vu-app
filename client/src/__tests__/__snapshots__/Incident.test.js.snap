@@ -8,6 +8,9 @@ exports[`Inicdent should render correctly 1`] = `
     className="trash-can"
     onClick={[Function]}
   />
+  <pure(CreateIcon)
+    className="pencil"
+  />
   <WithStyles(CardContent)>
     <div
       className="card-section"
@@ -24,6 +27,7 @@ exports[`Inicdent should render correctly 1`] = `
         <ReactMarkdown
           astPlugins={Array []}
           escapeHtml={true}
+          id="problem-markdown"
           plugins={Array []}
           rawSourcePos={false}
           renderers={Object {}}
@@ -48,6 +52,7 @@ gremlins
       <ReactMarkdown
         astPlugins={Array []}
         escapeHtml={true}
+        id="solution-markdown"
         plugins={Array []}
         rawSourcePos={false}
         renderers={Object {}}
