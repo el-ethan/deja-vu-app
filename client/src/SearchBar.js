@@ -5,6 +5,8 @@ import BugReportIcon from '@material-ui/icons/BugReport';
 
 
 const someBase16Colors = ['#ab4642', '#dc9656', '#f7ca88', '#a1b56c', '#86c1b9', '#7cafc2', '#ba8baf'];
+
+
 function SearchBar({filterFunc, children}) {
 
     const handleInput = (event) => {
