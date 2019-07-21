@@ -35,7 +35,6 @@ function ContextSelector({contexts, setContext, previousSelectedContext}) {
                             {context}
                         </Dropdown.Item>
                     );
-
                 })
             }
         </DropdownButton>
