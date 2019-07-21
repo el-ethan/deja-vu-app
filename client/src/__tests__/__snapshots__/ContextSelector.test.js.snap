@@ -4,12 +4,6 @@ exports[`ContextSelector should render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ContextSelector
-    contexts={
-      Array [
-        "home",
-        "work",
-      ]
-    }
     selectedContext="home"
     setContext={[Function]}
   />,
@@ -40,18 +34,26 @@ ShallowWrapper {
           <ForwardRef
             as={[Function]}
             disabled={false}
-            eventKey="home"
-            onSelect={[Function]}
-          >
-            home
-          </ForwardRef>,
-          <ForwardRef
-            as={[Function]}
-            disabled={false}
             eventKey="work"
             onSelect={[Function]}
           >
             work
+          </ForwardRef>,
+          <ForwardRef
+            as={[Function]}
+            disabled={false}
+            eventKey="personal"
+            onSelect={[Function]}
+          >
+            personal
+          </ForwardRef>,
+          <ForwardRef
+            as={[Function]}
+            disabled={false}
+            eventKey="pagerduty"
+            onSelect={[Function]}
+          >
+            pagerduty
           </ForwardRef>,
         ],
       ],
@@ -85,17 +87,17 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "home",
+        "key": "work",
         "nodeType": "function",
         "props": Object {
           "as": [Function],
-          "children": "home",
+          "children": "work",
           "disabled": false,
-          "eventKey": "home",
+          "eventKey": "work",
           "onSelect": [Function],
         },
         "ref": null,
-        "rendered": "home",
+        "rendered": "work",
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
           "defaultProps": Object {
@@ -108,17 +110,40 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "work",
+        "key": "personal",
         "nodeType": "function",
         "props": Object {
           "as": [Function],
-          "children": "work",
+          "children": "personal",
           "disabled": false,
-          "eventKey": "work",
+          "eventKey": "personal",
           "onSelect": [Function],
         },
         "ref": null,
-        "rendered": "work",
+        "rendered": "personal",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "defaultProps": Object {
+            "as": [Function],
+            "disabled": false,
+          },
+          "displayName": "DropdownItem",
+          "render": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": "pagerduty",
+        "nodeType": "function",
+        "props": Object {
+          "as": [Function],
+          "children": "pagerduty",
+          "disabled": false,
+          "eventKey": "pagerduty",
+          "onSelect": [Function],
+        },
+        "ref": null,
+        "rendered": "pagerduty",
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
           "defaultProps": Object {
@@ -167,18 +192,26 @@ ShallowWrapper {
             <ForwardRef
               as={[Function]}
               disabled={false}
-              eventKey="home"
-              onSelect={[Function]}
-            >
-              home
-            </ForwardRef>,
-            <ForwardRef
-              as={[Function]}
-              disabled={false}
               eventKey="work"
               onSelect={[Function]}
             >
               work
+            </ForwardRef>,
+            <ForwardRef
+              as={[Function]}
+              disabled={false}
+              eventKey="personal"
+              onSelect={[Function]}
+            >
+              personal
+            </ForwardRef>,
+            <ForwardRef
+              as={[Function]}
+              disabled={false}
+              eventKey="pagerduty"
+              onSelect={[Function]}
+            >
+              pagerduty
             </ForwardRef>,
           ],
         ],
@@ -212,17 +245,17 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "home",
+          "key": "work",
           "nodeType": "function",
           "props": Object {
             "as": [Function],
-            "children": "home",
+            "children": "work",
             "disabled": false,
-            "eventKey": "home",
+            "eventKey": "work",
             "onSelect": [Function],
           },
           "ref": null,
-          "rendered": "home",
+          "rendered": "work",
           "type": Object {
             "$$typeof": Symbol(react.forward_ref),
             "defaultProps": Object {
@@ -235,17 +268,40 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "work",
+          "key": "personal",
           "nodeType": "function",
           "props": Object {
             "as": [Function],
-            "children": "work",
+            "children": "personal",
             "disabled": false,
-            "eventKey": "work",
+            "eventKey": "personal",
             "onSelect": [Function],
           },
           "ref": null,
-          "rendered": "work",
+          "rendered": "personal",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "defaultProps": Object {
+              "as": [Function],
+              "disabled": false,
+            },
+            "displayName": "DropdownItem",
+            "render": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": "pagerduty",
+          "nodeType": "function",
+          "props": Object {
+            "as": [Function],
+            "children": "pagerduty",
+            "disabled": false,
+            "eventKey": "pagerduty",
+            "onSelect": [Function],
+          },
+          "ref": null,
+          "rendered": "pagerduty",
           "type": Object {
             "$$typeof": Symbol(react.forward_ref),
             "defaultProps": Object {

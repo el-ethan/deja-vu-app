@@ -6,8 +6,7 @@ describe('ContextSelector', () => {
     it('should render correctly', () => {
         const component = shallow(
             <ContextSelector selectedContext={'home'}
-                             setContext={() => {}}
-                             contexts={['home', 'work']}/>
+                             setContext={() => {}} />
         );
         expect(component).toMatchSnapshot();
     });
