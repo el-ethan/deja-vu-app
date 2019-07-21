@@ -2,11 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-
 import Incident from './Incident';
 import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
-import {ContextSelector, ALL_CONTEXTS, CONTEXTS} from './ContextSelector';
+import {ContextSelector, ALL_CONTEXTS} from './ContextSelector';
 
 
 function IncidentList() {
@@ -64,31 +63,26 @@ function IncidentList() {
         });
     }
 
-
     return (
-            <div>
+        <div>
             <SearchBar filterFunc={updateSearchQuery}>
-            <ContextSelector selectedContext={currentContext}
-        setContext={setContext}
-        contexts={CONTEXTS}/>
+                <ContextSelector selectedContext={currentContext} setContext={setContext} />
             </SearchBar>
             <div>
-            <div>
-            {
-                incidents.length < 1 &&
-                    <LinearProgress style={{marginTop: '1rem'}} />
-            }
-        {
-            getFilteredIncidents().map((incident, i) => (
-                    <Incident onDelete={onDelete} key={incident._id || i} {...incident} />
-            )).reverse()
-        }
+                <div>
+                    {
+                        incidents.length < 1 &&
+                        <LinearProgress style={{marginTop: '1rem'}} />
+                    }
+                    {
+                        getFilteredIncidents().map((incident, i) => (
+                            <Incident onDelete={onDelete} key={incident._id || i} {...incident} />
+                        )).reverse()
+                    }
+                </div>
+                <IncidentDialog appContext={currentContext} onAddFunc={addNewIncidentToList} />
+            </div>
         </div>
-            <IncidentDialog contexts={CONTEXTS}
-        appContext={currentContext}
-        onAddFunc={addNewIncidentToList} />
-            </div>
-            </div>
     );
 }
 

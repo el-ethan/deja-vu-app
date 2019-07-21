@@ -93,10 +93,8 @@ export default class IncidentDialog extends React.Component {
                             (event) => this.setState({solution: event.target.value})
                             }
                         />
-                        <ContextSelector
-                            setContext={this.handleContextSelection}
-                            selectedContext={this.props.appContext}
-                            contexts={this.props.contexts} />
+                <ContextSelector setContext={this.handleContextSelection}
+                                 selectedContext={this.props.appContext} />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">

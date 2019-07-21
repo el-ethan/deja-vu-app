@@ -11,7 +11,7 @@ const CONTEXTS = [
 ];
 
 
-function ContextSelector({contexts, setContext, previousSelectedContext}) {
+function ContextSelector({setContext, previousSelectedContext}) {
     const [selectedContext, setSelectedContext] = useState(previousSelectedContext || ALL_CONTEXTS);
 
     const handleSelect = (selectedContext) => {
@@ -27,7 +27,7 @@ function ContextSelector({contexts, setContext, previousSelectedContext}) {
                 All contexts
             </Dropdown.Item>
             {
-                contexts.map((context) => {
+                CONTEXTS.map((context) => {
                     return (
                         <Dropdown.Item eventKey={context}
                                        onSelect={handleSelect}
@@ -41,4 +41,4 @@ function ContextSelector({contexts, setContext, previousSelectedContext}) {
     );
 }
 
-export {ContextSelector, ALL_CONTEXTS, CONTEXTS};
+export {ContextSelector, ALL_CONTEXTS};
