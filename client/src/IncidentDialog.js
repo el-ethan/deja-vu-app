@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {ContextSelector} from './ContextSelector';
 import AddButton from './AddButton';
+import {postIncidentToDatabase} from './api'
 
 
 function IncidentDialog({appContext, onAddFunc}) {
@@ -29,24 +30,12 @@ function IncidentDialog({appContext, onAddFunc}) {
         setModelOpen(false);
     };
 
-    const postIncidentToDatabase = () => {
-        const incidentObj = {
-            problem: problem,
-            solution: solution,
-            context: selectedContext
-        };
-
-        fetch('/api/incidents', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(incidentObj),
-        });
-        return incidentObj;
-    }
 
     const save = () => {
-        const incident = postIncidentToDatabase();
-        onAddFunc(incident);
+        const savedIncident = postIncidentToDatabase(problem, solution, selectedContext);
+        if (savedIncident) {
+            onAddFunc(savedIncident);
+        }
         handleClose();
     }
 
