@@ -4,11 +4,7 @@ import 'whatwg-fetch';
 import IncidentList from './IncidentList';
 
 function App() {
-    return (
-        <div className="incident-list">
-            <IncidentList />
-        </div>
-    );
+    return <IncidentList />;
 }
 
 export default App;

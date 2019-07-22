@@ -5,6 +5,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Incident from './Incident';
 import SearchBar from './SearchBar';
 import IncidentDialog from './IncidentDialog';
+import AddButton from './AddButton';
 import {ContextSelector, ALL_CONTEXTS} from './ContextSelector';
 
 
@@ -19,6 +20,7 @@ function IncidentList() {
         });
     }
 
+    const [incidentModalOpen, setIncidentModalOpen] = useState(false);
     const [incidents, setIncidents] = useState([])
     const [currentContext, setCurrentContext] = useState(
         localStorage.getItem('dejavu-context') || ALL_CONTEXTS
@@ -63,6 +65,15 @@ function IncidentList() {
         });
     }
 
+
+    const handleClickOpen = () => {
+        setIncidentModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIncidentModalOpen(false);
+    }
+
     return (
         <div>
             <SearchBar filterFunc={updateSearchQuery}>
@@ -76,11 +87,12 @@ function IncidentList() {
                     }
                     {
                         getFilteredIncidents().map((incident, i) => (
-                            <Incident onDelete={onDelete} key={incident._id || i} {...incident} />
+                            <Incident onEdit={handleClickOpen} onDelete={onDelete} key={incident._id || i} {...incident} />
                         )).reverse()
                     }
                 </div>
-                <IncidentDialog appContext={currentContext} onAddFunc={addNewIncidentToList} />
+                <AddButton handleClickOpen={handleClickOpen} />
+                <IncidentDialog handleClose={handleModalClose} shouldOpen={incidentModalOpen} appContext={currentContext} onAddFunc={addNewIncidentToList} />
             </div>
         </div>
     );
