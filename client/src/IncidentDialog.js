@@ -10,27 +10,37 @@ import {ContextSelector} from './ContextSelector';
 import {postIncidentToDatabase} from './api'
 
 
-function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose}) {
-
-    const [modalOpen, setModelOpen] = useState(shouldOpen)
+function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose, incidents}) {
     const [problem, setProblem] = useState('');
     const [solution, setSolution] = useState('');
+    const [incidentToEdit, setIncidentToEdit] = useState();
     const [selectedContext, setSelectedContext] = useState(appContext);
 
+    useEffect(() => {
+        console.log(incidents);
+        if (incidents) {
+            const i = incidents.find(incident => incident.edititing === true)
+            if (i) {
+                setProblem(i.problem);
+                setSolution(i.solution);
+            }
+
+        }
+    }, [incidents])
     const handleContextSelection = (contextSelection) => {
         setSelectedContext(contextSelection)
     }
 
-    const save = ({incident}) => {
-        if (incident) {
-            update(incident)
+    const save = () => {
+        if (incidentToEdit) {
+            update(incidentToEdit)
         } else {
             const savedIncident = postIncidentToDatabase(problem, solution, selectedContext);
             if (savedIncident) {
                 onAddFunc(savedIncident);
             }
         }
-        handleClose();
+        handleClose(incidentToEdit);
     }
 
     const update = (incident) => {
@@ -46,6 +56,7 @@ function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose}) {
                     Add details about the incident.
                 </DialogContentText>
                 <TextField autoFocus
+                           defaultValue={problem}
                            margin="dense"
                            id="name"
                            label="Problem"
@@ -54,6 +65,7 @@ function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose}) {
                            rowsMax="4"
                            onChange={(event) => setProblem(event.target.value)}/>
                 <TextField margin="dense"
+                           defaultValue={solution}
                            id="name"
                            label="Solution"
                            fullWidth
