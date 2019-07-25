@@ -7,35 +7,25 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {ContextSelector} from './ContextSelector';
-import {postIncidentToDatabase} from './api'
+import {postIncidentToDatabase, updateIncidentInDatabase} from './api'
 
 
-function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose, incidents}) {
-    const [problem, setProblem] = useState('');
-    const [solution, setSolution] = useState('');
-    const [incidentToEdit, setIncidentToEdit] = useState();
+function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose, incidentToEdit}) {
+
+    const [problem, setProblem] = useState(incidentToEdit ? incidentToEdit.problem : '');
+    const [solution, setSolution] = useState(incidentToEdit ? incidentToEdit.solution : '');
     const [selectedContext, setSelectedContext] = useState(appContext);
 
-    useEffect(() => {
-        console.log(incidents);
-        if (incidents) {
-            const i = incidents.find(incident => incident.edititing === true)
-            if (i) {
-                setProblem(i.problem);
-                setSolution(i.solution);
-            }
-
-        }
-    }, [incidents])
     const handleContextSelection = (contextSelection) => {
         setSelectedContext(contextSelection)
     }
 
     const save = () => {
+        let savedIncident;
         if (incidentToEdit) {
-            update(incidentToEdit)
+            savedIncident = updateIncidentInDatabase(problem, solution, selectedContext)
         } else {
-            const savedIncident = postIncidentToDatabase(problem, solution, selectedContext);
+            savedIncident = postIncidentToDatabase(problem, solution, selectedContext);
             if (savedIncident) {
                 onAddFunc(savedIncident);
             }

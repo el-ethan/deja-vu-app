@@ -20,7 +20,6 @@ function IncidentList() {
         });
     }
     const [incidentModalOpen, setIncidentModalOpen] = useState(false);
-    const [incidentToEdit, setIncidentToEdit] = useState(null);
     const [incidents, setIncidents] = useState([])
     const [currentContext, setCurrentContext] = useState(
         localStorage.getItem('dejavu-context') || ALL_CONTEXTS
@@ -69,20 +68,8 @@ function IncidentList() {
         setIncidentModalOpen(true);
     };
 
-    const editIncident = (incident) => {
-        incident.edititing = true;
-        handleClickOpen()
-    }
-
-    const handleModalClose = (incident) => {
-        if (incident) {
-            incident.edititing = false;
-        }
+    const handleModalClose = () => {
         setIncidentModalOpen(false);
-    }
-
-    const getIncidentToEdit = () => {
-        return incidentToEdit;
     }
 
     return (
@@ -98,9 +85,9 @@ function IncidentList() {
                     }
                     {
                         getFilteredIncidents().map((incident, i) => (
-                            <Incident onEdit={() => editIncident(incident)}
-                                      onDelete={onDelete}
-                                      key={incident._id || i} {...incident} />
+                            <Incident onDelete={onDelete}
+                                      key={incident._id || i}
+                                      incident={incident} />
                         )).reverse()
                     }
                 </div>
@@ -108,7 +95,6 @@ function IncidentList() {
                 <IncidentDialog handleClose={handleModalClose}
                                 shouldOpen={incidentModalOpen}
                                 appContext={currentContext}
-                                incidents={incidents}
                                 onAddFunc={addNewIncidentToList} />
             </div>
         </div>
