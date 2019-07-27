@@ -86,6 +86,7 @@ function IncidentList() {
                     {
                         getFilteredIncidents().map((incident, i) => (
                             <Incident onDelete={onDelete}
+                                      onSaveFunc={addNewIncidentToList}
                                       key={incident._id || i}
                                       incident={incident} />
                         )).reverse()
@@ -95,7 +96,7 @@ function IncidentList() {
                 <IncidentDialog handleClose={handleModalClose}
                                 shouldOpen={incidentModalOpen}
                                 appContext={currentContext}
-                                onAddFunc={addNewIncidentToList} />
+                                onSaveFunc={addNewIncidentToList} />
             </div>
         </div>
     );

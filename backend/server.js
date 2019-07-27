@@ -40,7 +40,6 @@ router.get('/contexts', (req, res) => {
 
 router.post('/incidents', (req, res) => {
     const incident = new Incident();
-    // body parser lets us use the req.body
     const { problem, solution, context } = req.body;
     incident.problem = problem;
     incident.solution = solution;
@@ -54,21 +53,17 @@ router.post('/incidents', (req, res) => {
     return incident;
 });
 
-
-router.put('/incidents', (req, res) => {
-    const incident = new Incident();
+router.put('/incidents/:incidentId', (req, res) => {
     // body parser lets us use the req.body
     const { problem, solution, context } = req.body;
-    incident.problem = problem;
-    incident.solution = solution;
-    incident.context = context;
-    incident.save(err => {
-        if (err) {
-            return res.json({ success: false, error: err });
-        };
+    const { incidentId } = req.params;
+    Incident.findOneAndUpdate({_id: incidentId}, {problem, solution, context}, (error) => {
+        if (error) {
+            console.log('error');
+            return res.json({ success: false, error });
+        }
         return res.json({ success: true });
     });
-    return incident;
 });
 
 

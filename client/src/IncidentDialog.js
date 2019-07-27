@@ -10,7 +10,7 @@ import {ContextSelector} from './ContextSelector';
 import {postIncidentToDatabase, updateIncidentInDatabase} from './api'
 
 
-function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose, incidentToEdit}) {
+function IncidentDialog({appContext, onSaveFunc, shouldOpen, handleClose, incidentToEdit}) {
 
     const [problem, setProblem] = useState(incidentToEdit ? incidentToEdit.problem : '');
     const [solution, setSolution] = useState(incidentToEdit ? incidentToEdit.solution : '');
@@ -23,19 +23,16 @@ function IncidentDialog({appContext, onAddFunc, shouldOpen, handleClose, inciden
     const save = () => {
         let savedIncident;
         if (incidentToEdit) {
-            savedIncident = updateIncidentInDatabase(problem, solution, selectedContext)
+            incidentToEdit = {...incidentToEdit, problem, solution, context: selectedContext}
+            savedIncident = updateIncidentInDatabase(incidentToEdit)
         } else {
             savedIncident = postIncidentToDatabase(problem, solution, selectedContext);
-            if (savedIncident) {
-                onAddFunc(savedIncident);
-            }
+        }
+
+        if (savedIncident) {
+            onSaveFunc(savedIncident);
         }
         handleClose(incidentToEdit);
-    }
-
-    const update = (incident) => {
-        console.log('updating')
-        console.log(incident)
     }
 
     return (

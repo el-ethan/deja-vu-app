@@ -10,7 +10,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import IncidentDialog from './IncidentDialog';
 
 
-function Incident({incident, onDelete, _id}) {
+function Incident({incident, onDelete, onSaveFunc}) {
 
     const [incidentModalOpen, setIncidentModalOpen] = useState(false);
     const handleClickOpen = () => {
@@ -24,7 +24,7 @@ function Incident({incident, onDelete, _id}) {
     return (
         <React.Fragment>
             <Card className="incident-card">
-                <DeleteRoundedIcon className="trash-can" onClick={() => onDelete(_id)}/>
+                <DeleteRoundedIcon className="trash-can" onClick={() => onDelete(incident._id)}/>
                 <CreateIcon className="pencil" onClick={handleClickOpen}/>
                 <CardContent>
                     <div className="card-section">
@@ -43,7 +43,7 @@ function Incident({incident, onDelete, _id}) {
                             incidentToEdit={incident}
                             shouldOpen={incidentModalOpen}
                             appContext={incident.context}
-                            onAddFunc={null} />
+                            onSaveFunc={onSaveFunc} />
         </React.Fragment>
     );
 }

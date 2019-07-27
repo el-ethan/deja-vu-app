@@ -17,22 +17,17 @@ const postIncidentToDatabase = (problem, solution, context) => {
 };
 
 
-const updateIncidentInDatabase = (problem, solution, context) => {
-    if (!(problem && solution && context)) {
+const updateIncidentInDatabase = (incident) => {
+    if (!(incident.problem && incident.solution && incident.context)) {
         return null;
     }
-    const incidentObj = {
-        problem: problem,
-        solution: solution,
-        context: context
-    };
 
-    fetch('/api/incidents', {
+    fetch(`/api/incidents/${incident._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(incidentObj),
+        body: JSON.stringify(incident),
     });
-    return incidentObj;
+    return incident;
 };
 
 export {postIncidentToDatabase, updateIncidentInDatabase};
