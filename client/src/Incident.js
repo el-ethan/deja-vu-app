@@ -30,7 +30,8 @@ function Incident({incident, onDelete, onSaveFunc}) {
                     <div className="card-section">
     	                <Typography variant="h5" component="h2">Problem:</Typography>
                         <div className="stacktrace">
-                            <ReactMarkdown id="problem-markdown" source={`\`\`\`\n${incident.problem}\n\`\`\``} />
+                            <ReactMarkdown id="problem-markdown"
+                                           source={`\`\`\`\n${incident.problem}\n\`\`\``} />
                         </div>
                     </div>
                     <div className="card-section">

@@ -1,5 +1,4 @@
-- [ ] move components into their own files
-- [ ] add edit
-- [ ] Add confirmation for delete
 - [ ] clean up dependencies
-- [ ] use functional components
+- [ ] Fix context selector not populated by correct value
+- [ ] Buttons to do themeing
+- [ ] BUG: incident still populated in add dialog

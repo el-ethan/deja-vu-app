@@ -10,22 +10,20 @@ import {ContextSelector, ALL_CONTEXTS} from './ContextSelector';
 
 
 function IncidentList() {
-    const loadIncidentsFromServer = () => {
-        fetch('/api/incidents').then((data) => data.json()).then((res) => {
-            if (!res.success) {
-                setIncidents(res.error);
-            } else {
-                setIncidents(res.data);
-            }
-        });
-    }
     const [incidentModalOpen, setIncidentModalOpen] = useState(false);
     const [incidents, setIncidents] = useState([])
     const [currentContext, setCurrentContext] = useState(
         localStorage.getItem('dejavu-context') || ALL_CONTEXTS
     )
     const [searchQuery, setSearchQuery] = useState('');
+
+
+    const loadIncidentsFromServer = () => {
+        fetch('/api/incidents').then(data => data.json()).then(res => setIncidents(res.data));
+    }
+
     useEffect(loadIncidentsFromServer, []);
+
 
     const addNewIncidentToList = (newIncident) => {
         const newIncidents = [...incidents];
@@ -75,7 +73,7 @@ function IncidentList() {
     return (
         <div>
             <SearchBar filterFunc={updateSearchQuery}>
-                <ContextSelector selectedContext={currentContext} setContext={setContext} />
+                <ContextSelector previousSelectedContext={currentContext} setContext={setContext} />
             </SearchBar>
             <div>
                 <div>

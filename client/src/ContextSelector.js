@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -39,6 +40,11 @@ function ContextSelector({setContext, previousSelectedContext}) {
             }
         </DropdownButton>
     );
+}
+
+ContextSelector.propTypes = {
+    setContext: PropTypes.func.isRequired,
+    previousSelectedContext: PropTypes.string.isRequired
 }
 
 export {ContextSelector, ALL_CONTEXTS};

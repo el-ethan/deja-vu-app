@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -58,7 +59,7 @@ function IncidentDialog({appContext, onSaveFunc, shouldOpen, handleClose, incide
                            fullWidth
                            onChange={(event) => setSolution(event.target.value)}/>
                 <ContextSelector setContext={handleContextSelection}
-                                 selectedContext={appContext} />
+                                 previousSelectedContext={appContext} />
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose} color="primary">
@@ -70,6 +71,14 @@ function IncidentDialog({appContext, onSaveFunc, shouldOpen, handleClose, incide
             </DialogActions>
         </Dialog>
     );
+}
+
+IncidentDialog.propTypes =  {
+    appContext: PropTypes.string.isRequired,
+    onSaveFunc: PropTypes.func.isRequired,
+    shouldOpen: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
+    incidentToEdit: PropTypes.object
 }
 
 export default IncidentDialog;
