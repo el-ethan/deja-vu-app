@@ -6,6 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 const ALL_CONTEXTS = 'All contexts';
 const CONTEXTS = [
+    ALL_CONTEXTS,
     'work',
     'personal',
     'pagerduty'
@@ -22,11 +23,6 @@ function ContextSelector({setContext, previousSelectedContext}) {
 
     return (
         <DropdownButton id="context-selector" title={selectedContext}>
-            <Dropdown.Item eventKey={ALL_CONTEXTS}
-                           onSelect={handleSelect}
-                           key={'all-contexts'}>
-                All contexts
-            </Dropdown.Item>
             {
                 CONTEXTS.map((context) => {
                     return (

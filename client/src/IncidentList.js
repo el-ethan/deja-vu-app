@@ -61,7 +61,6 @@ function IncidentList() {
         });
     }
 
-
     const handleClickOpen = () => {
         setIncidentModalOpen(true);
     };
