@@ -2,3 +2,4 @@
 - [ ] Fix context selector not populated by correct value
 - [ ] Buttons to do themeing
 - [ ] BUG: incident still populated in add dialog
+- [ ] Make high level name descriptive and low level name generic, or try that out at least
