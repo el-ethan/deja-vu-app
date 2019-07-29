@@ -10,7 +10,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import IncidentDialog from './IncidentDialog';
 
 
-function Incident({incident, onDelete, onSaveFunc}) {
+function Incident({incident, onDelete, onSaveFunc, onEditFunc}) {
 
     const [incidentModalOpen, setIncidentModalOpen] = useState(false);
     const handleClickOpen = () => {
@@ -44,6 +44,7 @@ function Incident({incident, onDelete, onSaveFunc}) {
                             incidentToEdit={incident}
                             shouldOpen={incidentModalOpen}
                             appContext={incident.context}
+                            onEditFunc={onEditFunc}
                             onSaveFunc={onSaveFunc} />
         </React.Fragment>
     );

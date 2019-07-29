@@ -3,7 +3,7 @@ import Incident from './Incident';
 import {ALL_CONTEXTS} from './ContextSelector';
 
 
-function IncidentList({incidents, searchQuery, currentContext, onDelete, onAdd}) {
+function IncidentList({incidents, searchQuery, currentContext, onDelete, onAdd, onEdit}) {
 
     const getFilteredIncidents = () => {
         return incidents.filter((incident) => {
@@ -22,6 +22,7 @@ function IncidentList({incidents, searchQuery, currentContext, onDelete, onAdd})
                 getFilteredIncidents().map((incident, i) => (
                     <Incident onDelete={onDelete}
                               onSaveFunc={onAdd}
+                              onEditFunc={onEdit}
                               key={incident._id || i}
                               incident={incident} />
                 )).reverse()

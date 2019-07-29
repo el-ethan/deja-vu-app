@@ -28,6 +28,23 @@ function App() {
         setIncidents(newIncidents);
     };
 
+    const updateIncidentInList = (incident) => {
+        const incidentsCopy = [...incidents];
+        let indexOfIncident;
+        const incidentToUpdate = incidentsCopy.find((thisIncident, index) => {
+            const incidentFound = thisIncident._id === incident._id;
+            if (incidentFound) {
+                indexOfIncident = index;
+            }
+            return incidentFound;
+        });
+
+        if (incidentToUpdate) {
+            incidentsCopy[indexOfIncident] = {...incidentToUpdate, ...incident};
+            setIncidents(incidentsCopy);
+        }
+    };
+
     const onDelete = (incidentId) => {
         if (!window.confirm('Delete this incident?')) {
             return;
@@ -67,6 +84,7 @@ function App() {
                 <IncidentList incidents={incidents}
                               searchQuery={searchQuery}
                               onAdd={addNewIncidentToList}
+                              onEdit={updateIncidentInList}
                               onDelete={onDelete}
                               currentContext={currentContext} />
                 <AddButton handleClickOpen={handleClickOpen} />
