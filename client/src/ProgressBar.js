@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 function ProgressBar({loadInProgress}) {
@@ -10,6 +11,10 @@ function ProgressBar({loadInProgress}) {
             }
         </div>
     );
+};
+
+ProgressBar.propTypes = {
+    loadInProgress: PropTypes.bool.isRequired
 };
 
 export default ProgressBar;
